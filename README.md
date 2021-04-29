@@ -21,14 +21,14 @@ install python virtual environment (if you don't have it already)
 pip install pipenv
 ```
 
-then run the shell command to get started while inside the app folder
+then run the shell command to get started while inside the root project folder
 ```
 pipenv shell
 ```
 
-then cd into the folder webApp from the root app to access manage.py
+then cd into the folder web_server_project from the root folder to access manage.py
 ```
-cd webApp
+cd web_server_project
 ```
 
 then start the server
@@ -39,7 +39,7 @@ python manage.py runserver
 <br>
 
 ## Folders
-path: app/webApp/application ( Frontend ) <br>
+path: web_server_project/application/ ( Frontend ) <br>
 - In the /static folder you can store images, css and other static files.
 - In the /templates folder you can store html files for the different pages.
 
@@ -48,10 +48,10 @@ Adding new pages
 - Open views.py and add the path 
 - Open urls.py and added the component
 
-path: app/webApp/webApp ( Backend ) <br>
+path: /web_server_project/web_server_project/ ( Backend ) <br>
 - settings.py stores all of the main core components.
 
-path: app/webApp/webApp ( DB ) <br>
+path: /web_server_project/web_server_project/ ( DB ) <br>
 - models.py to create models and tables.
 
 
