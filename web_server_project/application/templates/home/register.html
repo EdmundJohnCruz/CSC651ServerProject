@@ -13,14 +13,14 @@
 <!--Register--> 
 <div class="container py-5">
 	<h1 class="text-white">Register</h1>
-	<div class="bg-light" style="border: 2px solid black; margin: 5%; text-align: center;">
+	<div class="bg-light" style="border: 2px solid lightgray; margin: 5%; text-align: center;">
 		<form method="POST">
 			{% csrf_token %}
-			{{ register_form}}     
+			{{ register_form.as_p}}     
 		</br>               
 		<button class="btn btn-primary" type="submit">Register</button>
 		</form>
-		<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
+		<p class="text-center text-muted">If you already have an account, <a href="/login">login</a> instead.</p>
 	</div>
 </div>
 
