@@ -1,13 +1,25 @@
-{% block content %}      
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+</head>
 
+{% block content %}
+<body class="bg-danger">
 <!--Login--> 
 <div class="container py-5">
-  <h1>Login</h1>
+  <h1 class="text-white">Login</h1>
   <form method="POST">
-    {% csrf_token %}
-    <button class="btn btn-primary" type="submit">Login</button>
-  </form>
-  <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
-</div>
+      {% csrf_token %}
+      <button class="btn btn-primary" type="submit">Login</button>
+    </form>
+    <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
+  </div>
 
 {% endblock %}
+</body>
+</html>
