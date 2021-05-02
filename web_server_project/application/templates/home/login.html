@@ -13,12 +13,18 @@
 <!--Login--> 
 <div class="container py-5">
   <h1 class="text-white">Login</h1>
-  <form method="POST">
+  <div class="bg-light " style="border: 2px solid black; margin: 5%">
+    <form method="POST" style="text-align: center;">
       {% csrf_token %}
+      <label for="username">Username: </label>
+      <input type="text" id="username" name="username"><br>
+      <label for="password">Password: </label>
+      <input type="password" id="password" name="password"><br>
       <button class="btn btn-primary" type="submit">Login</button>
     </form>
     <p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
   </div>
+</div>
 
 {% endblock %}
 </body>
