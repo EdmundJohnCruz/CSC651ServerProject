@@ -54,4 +54,12 @@ path: /web_server_project/web_server_project/ ( Backend ) <br>
 path: /web_server_project/web_server_project/ ( DB ) <br>
 - models.py to create models and tables.
 
+## Additional libraries
+These were some additional libraries we used.
+
+For a better form view
+```
+pip install django-crispy-forms
+```
+
 
