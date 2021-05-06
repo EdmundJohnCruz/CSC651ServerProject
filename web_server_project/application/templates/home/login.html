@@ -1,3 +1,5 @@
+{% block content %}
+{% load crispy_forms_tags %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,24 +10,30 @@
   <title>Login</title>
 </head>
 
-{% block content %}
-<body class="bg-danger">
-<!--Login--> 
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
+	<div class="container-fluid">
+		<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+			<li><a class="nav-link active" href="/">Home</a></li>
+			<li><a class="nav-link" href="/aboutus">About Us</a></li>
+			<li><a class="nav-link disabled" href="#" aria-disabled="true">Create A Post</a></li>
+			<li><a class="nav-link" href="/login">Login</a></li>
+			<li><a class="nav-link" href="/register">Register</a></li>
+		</ul>
+	</div>
+</nav>
+<!-- END OF NAVBAR -->
+
+<!--Login-->
 <div class="container py-5">
-  <h1 class="text-white">Login</h1>
-  <div class="bg-light " style="border: 2px solid lightgray; margin: 5%">
-    <form method="POST" style="text-align: center;">
-      {% csrf_token %}
-      <label for="username">Username: </label>
-      <input type="text" id="username" name="username"><br>
-      <label for="password">Password: </label>
-      <input type="password" id="password" name="password"><br>
-      <button class="btn btn-primary" type="submit">Login</button>
-    </form>
-    <p class="text-center text-muted">Don't have an account? <a href="/register">Create an account</a>.</p>
-  </div>
+	<h1>Login</h1>
+	<form method="POST">
+		{% csrf_token %}
+		{{ form|crispy }}
+		<button class="btn btn-primary" type="submit">Login</button>
+	</form>
+	<p class="text-center">Don't have an account? <a href="/register">Create an account</a>.</p>
 </div>
 
+
 {% endblock %}
-</body>
-</html>

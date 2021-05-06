@@ -5,6 +5,6 @@ app_name = "application"
 
 urlpatterns = [
     path('', views.index),
-    path('aboutus', views.aboutUs)
+    path('aboutus', views.aboutUs),
 ]
 

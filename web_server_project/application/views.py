@@ -1,11 +1,12 @@
-from django.shortcuts import render
-from .models import Post
-from django.shortcuts import  render, redirect
+# from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .forms import NewUserForm
-from django.contrib.auth import login
+from .models import Post
+# from django.contrib.auth import login
 from django.contrib.auth import login, authenticate
 from django.contrib import messages
 from django.contrib.auth.forms import AuthenticationForm 
+from django.contrib.auth.decorators import login_required
 
 # dummy data
 # posts = [
@@ -41,8 +42,8 @@ def register_request(request):
 		if form.is_valid():
 			user = form.save()
 			login(request, user)
-			messages.success(request, "Registration successful." )
-			return redirect("main:index")
+			messages.success(request, f'Registration successful.' )
+			return redirect('/')
 		messages.error(request, "Unsuccessful registration. Invalid information.")
 	form = NewUserForm
 	return render (request, 'home/register.html', {"register_form":form})
@@ -58,10 +59,14 @@ def login_request(request):
 			if user is not None:
 				login(request, user)
 				messages.info(request, f"You are now logged in as {username}.")
-				return redirect("main:index")
+				return redirect('/')
 			else:
 				messages.error(request,"Invalid username or password.")
 		else:
 			messages.error(request,"Invalid username or password.")
 	form = AuthenticationForm()
 	return render(request, 'home/login.html', context={"login_form":form})
+
+@login_required
+def profile(request):
+	return render(request, 'home/profile.html')
