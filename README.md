@@ -62,4 +62,9 @@ For a better form view
 pip install django-crispy-forms
 ```
 
+For a image rendering
+```
+pip install Pillow
+```
+
 

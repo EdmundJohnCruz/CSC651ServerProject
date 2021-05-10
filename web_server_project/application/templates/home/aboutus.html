@@ -1,28 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Us</title>
-</head>
-<body class="bg-danger">
-    <!-- NAVBAR -->
-    <nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-      <div class= "container-fluid">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li><a class="nav-link " href="/">Home</a></li>
-          <li><a class="nav-link active" href= "/aboutus">About Us</a></li>
-          <li><a class="nav-link disabled" href="#" aria-disabled="true">Create A Post</a></li>
-          <li><a class="nav-link" href="/login">Login</a></li>
-        </ul>
-      </div>
-    </nav>
-    <!-- END OF NAVBAR -->
 
-  </br>
-  </br>
-  <h1 class="text-white">Meet our Team</h1>
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	{% load static %}
+	<link rel="stylesheet" href="{% static '/css/index.css' %}">
+	<title>Team</title>
+</head>
+
+<body class=bg-danger>
+	<!-- NAVBAR -->
+	{% include 'home/navbar.html' %}
+	<!-- END OF NAVBAR -->
+
+	</br>
+	</br>
+
+	<h1 class="header-title" style="color: white; padding: 15px;">Meet our Team</h1>
+
+	<div class="d-flex justify-content-around">
+
+		<div class="card p-2" style="width: 18rem; margin:2px;">
+			<div class="card-body">
+				<h5 class="card-title">Begum Sakin</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Database Manager</h6>
+				<p class="card-text">Major</p>
+			</div>
+		</div>
+
+		<div class="card p-2" style="width: 18rem; margin:2px;">
+			<div class="card-body">
+				<h5 class="card-title">Mantasha Khan</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Backend Engineer</h6>
+				<p class="card-text">Major</p>
+			</div>
+		</div>
+
+		<div class="card p-2" style="width: 18rem; margin:2px;">
+			<div class="card-body">
+				<h5 class="card-title">John Cruz</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Frontend Engineer</h6>
+				<p class="card-text">Major</p>
+			</div>
+		</div>
+
+		<div class="card p-2" style="width: 18rem; margin:2px;">
+			<div class="card-body">
+				<h5 class="card-title">Franklin Arevalo</h5>
+				<h6 class="card-subtitle mb-2 text-muted">Backend Engineer</h6>
+				<p class="card-text">Computer Science 🇸🇻</p>
+			</div>
+		</div>
+
+	</div>
 </body>
+
 </html>

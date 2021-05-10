@@ -1,0 +1,45 @@
+{% load static %}
+{% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+	<title>WebApp</title>
+</head>
+
+<body class=bg-danger>
+	<!-- NAVBAR -->
+	{% include 'home/navbar.html' %}
+	<!-- END OF NAVBAR -->
+
+	</br>
+	</br>
+
+
+	<h1 class="text-white">Post Preview</h1>
+
+	<article class="media content-section bg-light" style="border: 2px solid black; margin: 5%">
+		<div class="media-body">
+			<div class="article-metadata">
+				<img src="{{ object.author.profile.image.url }}" style="width: 75px; height: 75px; border-radius: 50%;">
+				<a class="mr-2" href="#">{{ object.author }}</a>
+				<small class="text-muted">{{ object.date_posted|date:"F d, Y" }}</small>
+				{% if object.author == user %}
+					<div>
+						<a class="btn btn-secondary btn-sm mt-1 mb-1" href="/post/{{ object.id }}/update/">Update</a>
+						<a class="btn btn-danger btn-sm mt-1 mb-1" href="/post/{{ object.id }}/delete/">Delete</a>
+					</div>
+				{% endif %}
+			</div>
+			<h2>{{ object.title }}</h2>
+			<p class="article-content">{{ object.description }}</p>
+		</div>
+	</article>
+</body>
+{% endblock content %}

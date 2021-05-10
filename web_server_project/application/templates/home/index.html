@@ -8,57 +8,48 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
+	<link rel="stylesheet" href="{% static '/css/index.css' %}">
 	<title>WebApp</title>
 </head>
 
 <body class=bg-danger>
 	<!-- NAVBAR -->
-	<nav class="navbar navbar-expand navbar-dark bg-dark fixed-top">
-		<div class="container-fluid">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				<li><a class="nav-link active" href="/">Home</a></li>
-				<li><a class="nav-link" href="/aboutus">About Us</a></li>
-				{% if user.is_authenticated %}
-					<li><a class="nav-link disabled" href="#" aria-disabled="true">Create A Post</a></li>
-					<li><a class="nav-link" href="/profile">Profile</a></li>
-					<li><a class="nav-link" href="/logout">Logout</a></li>
-				{% else %}
-					<li><a class="nav-link" href="/login">Login</a></li>
-					<li><a class="nav-link" href="/register">Register</a></li>
-				{% endif %}
-			</ul>
-		</div>
-	</nav>
+	{% include 'home/navbar.html' %}
 	<!-- END OF NAVBAR -->
 
 	</br>
 	</br>
 
 	<div>
-	{% if messages %}
+		{% if messages %}
 		{% for message in messages %}
-			<div class="alert alert-{{ message.tags }}">{{ message }}</div>
+		<div class="alert alert-{{ message.tags }}">{{ message }}</div>
 		{% endfor %}
-	{% endif %}
+		{% endif %}
 	</div>
 
-	<h1 class="text-white">Welcome!</h1>
 	<!-- double curly braces is how we pass in data from db, 
     also curly braces percentages is function to show all the post from db.
     Feel free to change all the html tags and classes -->
-	{% for post in posts %}
-	<article class="media content-section bg-light" style="border: 2px solid black; margin: 5%">
-		<div class="media-body">
-			<div class="article-metadata">
-				<a class="mr-2" href="#">{{ post.author }}
-					<small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+	<h1 class="text-white" style="color: white; padding: 15px;">Welcome {{ user.username }}!</h1>
+
+	<div class="container">
+
+		{% for post in posts %}
+		<article class="media content-section bg-light" style="border: 2px solid black; margin: 5%">
+			<div class="media-body">
+				<div class="article-metadata">
+					<img src="{{ post.author.profile.image.url }}" style="width: 75px; height: 75px; border-radius: 50%;">
+					<a class="mr-2" href="#">{{ post.author }}
+						<small class="text-muted">{{ post.date_posted|date:"F d, Y" }}</small>
+				</div>
+
+				<a href="/post/{{ post.id }}">{{ post.title }}</a>
+				<p class="article-content">{{ post.description }}</p>
 			</div>
-			<h2><a class="article-title text-info" href="#">{{ post.title }}</a></h2>
-			<p class="article-content">{{ post.description }}</p>
-		</div>
-	</article>
-	{% endfor %}
+		</article>
+		{% endfor %}
+	</div>
 </body>
 
 </html>

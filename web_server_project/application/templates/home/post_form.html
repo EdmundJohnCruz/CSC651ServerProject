@@ -11,8 +11,10 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" type="text/css" href="{% static '/css/index.css' %}">
-	<title>WebApp | Register</title>
+	<title>Register</title>
 </head>
+
+{% block content %}
 
 <body class=bg-danger>
 	<!-- NAVBAR -->
@@ -21,7 +23,7 @@
 
 	<!--Register-->
 	<div class="container py-5">
-		<h1>Register</h1>
+		<h1>Create Post</h1>
 		<div>
 			{% if messages %}
 			{% for message in messages %}
@@ -32,10 +34,11 @@
 		<form method="POST" style="border: 1px solid black; padding: 20px; background-color: antiquewhite;">
 			{% csrf_token %}
 			<fieldset class="form-group">
-				{{ register_form|crispy }}
+				{{ form|crispy }}
 			</fieldset>
-			<button class="btn btn-primary" type="submit">Register</button>
+			<button class="btn btn-primary" type="submit">Post</button>
 		</form>
-		<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
 	</div>
 </body>
+
+{% endblock %}
