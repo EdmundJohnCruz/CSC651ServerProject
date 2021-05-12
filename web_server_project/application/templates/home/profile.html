@@ -12,21 +12,22 @@
 	<title>WebApp</title>
 </head>
 
-<body>
+<body class="bg-danger">
 	<!-- NAVBAR -->
 	{% include 'home/navbar.html' %}
 	<!-- END OF NAVBAR -->
-
+</br>
+</br>
+	<h1 class="text-light" style="text-align: center">Profile Info</h1>
 	<!-- <div class="content-section"> -->
-	<div class="container" style="padding-top: 5%;">
-		<div class="media">
+	<div class="container">
+		<div class="media bg-light" style="border: 2px solid black; margin: 5%">
 			<img class="rounded-circle account-img" src="{{ user.profile.image.url }}" style="width: 150px; height: 150px;">
 			<div class="media-body">
 				<h2 class="account-heading">{{ user.username }}</h2>
 				<p class="text-secondary">{{ user.email }}</p>
 			</div>
 		</div>
-		<h1>Profile Info</h1>
 		<div>
 			{% if messages %}
 			{% for message in messages %}
@@ -35,7 +36,7 @@
 			{% endif %}
 		</div>
 		<form method="POST" enctype="multipart/form-data"
-			style="border: 1px solid black; padding: 20px; background-color: antiquewhite;">
+			style="border: 1px solid black; padding: 20px; background-color: whitesmoke;">
 			{% csrf_token %}
 			<fieldset class="form-group">
 				{{ u_form|crispy }}
