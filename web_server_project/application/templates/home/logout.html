@@ -1,8 +1,16 @@
 {% block content %}
-
-<div>
-  <h2>You have been logged out</h2>
-  <a href="/login">Login again?</a>
-</div>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<body class=bg-danger>
+  	<!-- NAVBAR -->
+	{% include 'home/navbar.html' %}
+	<!-- END OF NAVBAR -->
+</br>
+</br>
+  <div class="text-white" style="text-align: center">
+    <h2>You have been logged out.</h2>
+    <a href="/login" class="text-info">Login again?</a>
+  </div>
+</body>
 
 {% endblock content %}

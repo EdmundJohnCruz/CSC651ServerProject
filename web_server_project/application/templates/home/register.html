@@ -20,8 +20,10 @@
 	<!-- END OF NAVBAR -->
 
 	<!--Register-->
+</br>
+</br>
+	<h1 class="text-white" style="text-align: center">Register</h1>
 	<div class="container py-5">
-		<h1>Register</h1>
 		<div>
 			{% if messages %}
 			{% for message in messages %}
@@ -29,13 +31,13 @@
 			{% endfor %}
 			{% endif %}
 		</div>
-		<form method="POST" style="border: 1px solid black; padding: 20px; background-color: antiquewhite;">
+		<form method="POST" style="border: 1px solid black; padding: 20px; background-color: whitesmoke;">
 			{% csrf_token %}
 			<fieldset class="form-group">
 				{{ register_form|crispy }}
 			</fieldset>
 			<button class="btn btn-primary" type="submit">Register</button>
+			<p class="text-center">If you already have an account, <a href="/login" class="text-info">login</a> instead.</p>
 		</form>
-		<p class="text-center">If you already have an account, <a href="/login">login</a> instead.</p>
 	</div>
 </body>
